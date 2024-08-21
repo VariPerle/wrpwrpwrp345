@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    double num1, num2;
+    char operation;   //用户手动输入计算符
+
+    printf("请输入第一个数: ");
+    scanf("%lf", &num1);
+
+    printf("请选择进行的运算 (+, -, *, /): ");
+    scanf(" %c", &operation); 
+
+    printf("请输入第二个数: ");
+    scanf("%lf", &num2);
+
+    switch (operation) {
+        case '+':
+            printf("%.2f + %.2f = %.2f\n", num1, num2, num1 + num2);
+            break;
+        case '-':
+            printf("%.2f - %.2f = %.2f\n", num1, num2, num1 - num2);
+            break;
+        case '*':
+            printf("%.2f * %.2f = %.2f\n", num1, num2, num1 * num2);
+            break;
+        case '/':
+            // 检查除数是否为0
+            if (num2 != 0) {
+                printf("%.2f / %.2f = %.2f\n", num1, num2, num1 / num2);
+            } else {
+                printf("错误：除数不能为0。\n");
+            }
+            break;
+        default:
+            printf("未知操作符。请输入 +, -, * 或 /。\n");
+            break;
+    }
+
+    return 0;
+}
